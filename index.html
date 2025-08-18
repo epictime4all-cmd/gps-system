@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT-5 AI Marketing Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; }
+        header { background:#0073e6; color:white; padding:20px; text-align:center; }
+        main { padding:20px; }
+        .section { background:white; margin-bottom:20px; padding:20px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+        button { padding:10px 20px; margin-top:10px; background:#0073e6; color:white; border:none; border-radius:5px; cursor:pointer; }
+        input, textarea { width:100%; padding:10px; margin-top:5px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GPT-5 AI Marketing Platform</h1>
+        <p>Voice + Visual + CRM + RAG + Mobile Ready</p>
+    </header>
+
+    <main>
+        <div class="section">
+            <h2>Chat with AI</h2>
+            <textarea id="userInput" rows="4" placeholder="Type your question here..."></textarea>
+            <button onclick="sendToGPT()">Send</button>
+            <div id="aiResponse" style="margin-top:15px; background:#e6f0ff; padding:10px; border-radius:5px;"></div>
+        </div>
+
+        <div class="section">
+            <h2>Voice Input</h2>
+            <button onclick="startVoice()">🎤 Start Voice Input</button>
+            <p id="voiceOutput"></p>
+        </div>
+
+        <div class="section">
+            <h2>Quick CRM Integration</h2>
+            <p>Connect Salesforce, HubSpot, SuiteCRM etc.</p>
+            <button onclick="crmDemo()">Connect Demo</button>
+            <p id="crmStatus"></p>
+        </div>
+    </main>
+
+    <script>
+        // Placeholder GPT-5 function
+        function sendToGPT() {
+            const input = document.getElementById('userInput').value;
+            if (!input) return alert('Please type a message!');
+            document.getElementById('aiResponse').innerText = 'GPT-5 Response: ' + input + ' [This is a placeholder response. Replace with API integration]';
+        }
+
+        // Voice recognition (simple demo)
+        function startVoice() {
+            if (!('webkitSpeechRecognition' in window)) {
+                alert('Your browser does not support voice recognition.');
+                return;
+            }
+            const recognition = new webkitSpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById('voiceOutput').innerText = 'You said: ' + transcript;
+            };
+            recognition.start();
+        }
+
+        // CRM demo placeholder
+        function crmDemo() {
+            document.getElementById('crmStatus').innerText = 'CRM connected successfully! [Demo placeholder]';
+        }
+    </script>
+</body>
+</html>
